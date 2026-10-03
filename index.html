@@ -93,25 +93,29 @@
       margin-bottom: 26px;
     }
 
-    /* Logo (1280x853, fundo preto): recortado na arte; o preto some com mix-blend-mode e funde com o fundo */
+    /* Logo redondo (1280x853, fundo preto): imagem ampliada e posicionada para centralizar a arte no círculo */
     .logo {
       position: relative;
-      width: 300px;
-      max-width: 100%;
-      height: 200px;
-      margin: 0 auto;
+      width: 168px;
+      height: 168px;
+      margin: 8px auto 0;
+      border-radius: 50%;
       overflow: hidden;
+      background: #000;
+      box-shadow:
+        0 0 0 3px var(--bg),
+        0 0 0 5px var(--brand),
+        0 12px 40px -6px rgba(255, 106, 19, .45);
     }
 
     .logo img {
       position: absolute;
       left: 50%;
-      top: -38px;
-      width: 505px;
+      top: 16px;
+      width: 262px;
       height: auto;
       max-width: none;
       transform: translateX(-50%);
-      mix-blend-mode: lighten;
     }
 
     .logo-fallback {
@@ -123,18 +127,12 @@
       font-size: 2rem;
     }
 
-    .tagline {
-      margin: 2px 0 0;
-      font-size: .95rem;
-      color: var(--muted);
-    }
-
     .chips {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 14px;
+      margin-top: 20px;
     }
 
     .chip {
@@ -257,10 +255,6 @@
     .icon-ifood { background: var(--ifood); }
     .icon-whatsapp { background: var(--whatsapp); color: #fff; }
     .icon-map { background: rgba(255, 106, 19, .14); color: var(--brand); }
-    .icon-insta {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-      color: #fff;
-    }
 
     .section-title {
       margin: 18px 4px 2px;
@@ -286,7 +280,6 @@
       to { opacity: 1; transform: none; }
     }
 
-    /* O cabeçalho não anima: animação isolaria o mix-blend-mode do logo */
     .links > li {
       animation: rise .5s cubic-bezier(.2, .7, .2, 1) both;
     }
@@ -314,7 +307,6 @@
         <img src="logo.jpg" alt="Avenidão Container" width="1280" height="853"
              onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Avenidão Container</span>'">
       </div>
-      <p class="tagline">Hambúrguer artesanal em Cascavel - PR</p>
       <div class="chips">
         <span class="chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -392,23 +384,6 @@
           <span class="label">
             <strong>Como chegar</strong>
             <small>Av. Papagaios, 2191 - Floresta, Cascavel - PR</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
-      </li>
-
-      <li>
-        <a class="btn" href="https://www.instagram.com/avenidaocontainer/" target="_blank" rel="noopener">
-          <span class="icon icon-insta">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M17.5 6.5h.01"/>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>Instagram</strong>
-            <small>@avenidaocontainer</small>
           </span>
           <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
         </a>
