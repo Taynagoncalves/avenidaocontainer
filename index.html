@@ -186,7 +186,7 @@
     .links {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       margin-top: 28px;
     }
 
@@ -200,6 +200,72 @@
     }
 
     .section-title:first-child { margin-top: 0; }
+
+    /* Blocos por tipo de pedido */
+    .group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(245, 230, 200, .045), rgba(245, 230, 200, .015));
+    }
+
+    .group-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .group-badge {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(242, 106, 27, .14);
+      color: var(--brand);
+    }
+
+    .group-badge svg { width: 24px; height: 24px; }
+
+    .group-head h2 {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -.015em;
+    }
+
+    .group-head p {
+      margin: 2px 0 0;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: -4px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(242, 106, 27, .3);
+      background: rgba(242, 106, 27, .08);
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--brand-light);
+    }
+
+    .group .btn:not(.btn-primary) { background: #231d19; }
+
+    @media (hover: hover) {
+      .group .btn:not(.btn-primary):hover { background: #2b241f; }
+    }
 
     .btn {
       display: flex;
@@ -391,7 +457,22 @@
     </header>
 
     <nav class="links" aria-label="Links">
-      <p class="section-title">Retirada e consumo no local</p>
+      <section class="group" aria-labelledby="g-local">
+        <div class="group-head">
+          <span class="group-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9 4.5 4h15L21 9"/><path d="M3 9v1a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0V9"/><path d="M5 12.5V20h14v-7.5"/><path d="M10 20v-5h4v5"/>
+            </svg>
+          </span>
+          <div>
+            <h2 id="g-local">Retirada e consumo no local</h2>
+            <p>Peça pelo site e retire no balcão ou coma aqui</p>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Retirar no local</span>
+          <span class="tag">Consumir no local</span>
+        </div>
 
       <a class="btn btn-primary" href="https://avenidaocontainer.centralpedidosonline.com.br/" target="_blank" rel="noopener">
         <span class="icon">
@@ -407,8 +488,20 @@
         </span>
         <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
       </a>
+      </section>
 
-      <p class="section-title">Pedidos para entrega</p>
+      <section class="group" aria-labelledby="g-entrega">
+        <div class="group-head">
+          <span class="group-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><path d="M8 17.5h7l-2.5-7H9"/><path d="M15 6h2.5l3.5 9"/><path d="M3 11h5"/>
+            </svg>
+          </span>
+          <div>
+            <h2 id="g-entrega">Pedidos para entrega</h2>
+            <p>Receba em casa pelo app que preferir</p>
+          </div>
+        </div>
 
       <div class="apps">
         <a class="btn tile" href="https://oia.99app.com/dlp9/8cYyxD" target="_blank" rel="noopener">
@@ -441,6 +534,7 @@
           </span>
         </a>
       </div>
+      </section>
 
       <p class="section-title">Atendimento</p>
 
