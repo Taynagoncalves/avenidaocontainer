@@ -90,7 +90,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% 28%;
+      object-position: 50% 95%;
       display: block;
     }
 
@@ -107,7 +107,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      margin-top: -72px;
+      margin-top: -100px;
       padding: 0 16px max(28px, env(safe-area-inset-bottom));
     }
 
@@ -159,16 +159,19 @@
       line-height: 1.15;
     }
 
+    .since {
+      margin: 6px 0 0;
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--brand);
+    }
+
     .info {
       margin: 10px 0 0;
       font-size: .86rem;
       font-weight: 600;
-      color: var(--muted);
-    }
-
-    .address {
-      margin: 4px 0 0;
-      font-size: .82rem;
       color: var(--muted);
     }
 
@@ -365,9 +368,8 @@
                onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Avenidão Container</span>'">
         </div>
         <h1 class="name">Avenidão Container</h1>
-        <p class="info">Terça a domingo, das 19h às 23h</p>
-        <p class="address">Av. Papagaios, 2191 - Floresta, Cascavel - PR</p>
-      </header>
+        <p class="since">Desde 2000</p>
+        <p class="info">Terça a domingo, das 19h às 23h</p>      </header>
 
       <nav class="actions" aria-label="Contato">
         <a class="action a-whatsapp" href="https://wa.me/5545998269678?text=Ol%C3%A1!%20Vim%20pelo%20link%20do%20Avenid%C3%A3o" target="_blank" rel="noopener">
