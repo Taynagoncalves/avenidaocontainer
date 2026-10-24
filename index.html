@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Avenidão Container | Peça agora</title>
   <meta name="description" content="Avenidão Container em Cascavel - PR. Peça pelo site, 99Food, iFood ou WhatsApp. Delivery e retirada.">
-  <meta name="theme-color" content="#0c0c0c">
+  <meta name="theme-color" content="#0e0d0c">
   <meta name="color-scheme" content="dark">
 
   <!-- Open Graph (WhatsApp, Facebook, etc.) -->
@@ -26,30 +26,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --brand: #f26a1b;
-      --brand-hover: #ff7a2e;
+      --brand-hover: #ff7b2e;
       --food99: #ffdd00;
       --ifood: #ea1d2c;
       --whatsapp: #25d366;
       --instagram: #e1306c;
       --google: #fbbc04;
-      --open: #34d399;
-      --closed: #f87171;
 
-      --bg: #0c0c0c;
-      --surface: #151515;
-      --surface-hover: #1c1c1c;
-      --icon-bg: #202020;
-      --line: #242424;
-      --line-hover: #333;
-      --text: #f4f4f4;
-      --muted: #8c8c8c;
+      --bg: #0e0d0c;
+      --surface: #181715;
+      --surface-hover: #201e1b;
+      --line: #262420;
+      --text: #f6f3ee;
+      --muted: #9b968d;
 
-      --radius: 14px;
+      --radius: 18px;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -60,31 +56,33 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
       -webkit-tap-highlight-color: transparent;
     }
 
-    .page {
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto;
-      padding: max(16px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      min-height: 100dvh;
+    a { color: inherit; text-decoration: none; }
+
+    a:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
     }
 
-    /* ---------- Cabeçalho ---------- */
-    .header { text-align: center; }
+    .page {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
 
+    /* ---------- Capa ---------- */
     .cover {
       position: relative;
-      height: 200px;
-      border-radius: 20px;
-      overflow: hidden;
+      height: 300px;
       background: var(--surface);
     }
 
@@ -92,33 +90,46 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% 60%;
+      object-position: 50% 28%;
       display: block;
     }
 
-    /* Escurece a base da foto para o logo se destacar */
     .cover::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 45%, rgba(12, 12, 12, .55));
+      background: linear-gradient(to bottom, rgba(14, 13, 12, .35), transparent 30%, transparent 50%, var(--bg));
     }
 
-    .cover + .logo {
-      margin-top: -88px;
-      box-shadow: 0 0 0 4px var(--bg);
+    /* ---------- Conteúdo sobreposto à capa ---------- */
+    .sheet {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-top: -72px;
+      padding: 0 16px max(28px, env(safe-area-inset-bottom));
     }
+
+    /* Em telas maiores a capa vira um card arredondado */
+    @media (min-width: 472px) {
+      .page { padding-top: 20px; }
+      .cover { border-radius: 28px; overflow: hidden; }
+    }
+
+    /* ---------- Perfil ---------- */
+    .profile { text-align: center; }
 
     /* Logo redondo (1280x853, fundo preto): imagem ampliada e posicionada para centralizar a arte no círculo */
     .logo {
       position: relative;
-      width: 112px;
-      height: 112px;
-      margin: 0 auto;
+      width: 116px;
+      height: 116px;
+      margin: -70px auto 0;
       border-radius: 50%;
       overflow: hidden;
       background: #000;
-      border: 1px solid var(--line);
+      box-shadow: 0 0 0 5px var(--bg), 0 18px 40px -12px rgba(0, 0, 0, .9);
     }
 
     .logo img {
@@ -136,165 +147,179 @@
       place-items: center;
       height: 100%;
       padding: 12px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: .9rem;
     }
 
     .name {
-      margin: 18px 0 0;
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: -.02em;
+      margin: 16px 0 0;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
     }
 
-    .city {
-      margin: 4px 0 0;
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
-    /* Horário de funcionamento */
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin: 14px 0 0;
-      padding: 5px 12px;
-      border-radius: 999px;
-      border: 1px solid currentColor;
-      background: var(--surface);
-      font-size: .8rem;
+    .info {
+      margin: 10px 0 0;
+      font-size: .86rem;
       font-weight: 600;
-      color: var(--closed);
-    }
-
-    .status[hidden] { display: none; }
-
-    .status::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    .status.is-open { color: var(--open); }
-
-    .hours {
-      margin: 8px 0 0;
-      font-size: .8rem;
       color: var(--muted);
     }
 
-    .status[hidden] + .hours { margin-top: 14px; }
-
-    /* ---------- Cards por tipo de pedido ---------- */
-    .section {
-      margin-top: 16px;
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: var(--surface);
+    .address {
+      margin: 4px 0 0;
+      font-size: .82rem;
+      color: var(--muted);
     }
 
-    .header + .section { margin-top: 28px; }
-
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .section-badge {
-      flex-shrink: 0;
+    /* ---------- Atalhos ---------- */
+    .actions {
       display: grid;
-      place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: rgba(242, 106, 27, .12);
-      color: var(--brand);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 22px;
     }
 
-    .section-badge svg { width: 22px; height: 22px; }
+    .action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 4px 12px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      font-size: .76rem;
+      font-weight: 700;
+      transition: background-color .15s ease, transform .15s ease;
+    }
+
+    .action svg { width: 24px; height: 24px; }
+
+    .action:active { transform: scale(.96); }
+
+    @media (hover: hover) {
+      .action:hover { background: var(--surface-hover); }
+    }
+
+    .a-whatsapp svg { color: var(--whatsapp); }
+    .a-instagram svg { color: var(--instagram); }
+    .a-map svg { color: var(--brand); }
+    .a-google svg { color: var(--google); }
+
+    /* ---------- Seções ---------- */
+    .section { margin-top: 30px; }
 
     .section-title {
-      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 4px 12px;
       font-size: 1.02rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -.01em;
     }
 
-    .section-sub {
-      margin: 2px 0 0;
-      font-size: .8rem;
-      color: var(--muted);
+    .section-title svg {
+      width: 20px;
+      height: 20px;
+      color: var(--brand);
     }
 
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .section .btn:not(.btn-primary) { background: #1b1b1b; }
-
-    @media (hover: hover) {
-      .section .btn:not(.btn-primary):hover { background: #222; }
-    }
-
-    /* ---------- Botões ---------- */
-    .btn {
+    /* Botão principal */
+    .cta {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 12px 14px 12px 12px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      text-decoration: none;
-      transition: background-color .15s ease, border-color .15s ease;
+      padding: 14px 16px 14px 14px;
+      border-radius: 20px;
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 16px 36px -18px rgba(242, 106, 27, .8);
+      transition: background-color .15s ease, transform .15s ease;
     }
 
-    .btn:focus-visible {
-      outline: 2px solid var(--brand);
-      outline-offset: 2px;
-    }
+    .cta:active { transform: scale(.98); }
 
     @media (hover: hover) {
-      .btn:hover { background: var(--surface-hover); border-color: var(--line-hover); }
-      .btn:hover .arrow { opacity: .9; }
+      .cta:hover { background: var(--brand-hover); }
     }
 
-    .icon {
+    .cta-logo {
       flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: var(--icon-bg);
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, .3);
     }
 
-    .icon svg { width: 22px; height: 22px; }
+    .cta-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .cta .label strong { font-size: 1.08rem; }
+    .cta .label small { color: rgba(255, 255, 255, .88); }
+    .cta .arrow { opacity: .9; }
+
+    /* Lista agrupada dos apps de entrega */
+    .group {
+      border-radius: 20px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px 12px 12px;
+      transition: background-color .15s ease;
+    }
+
+    .row + .row::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 70px;
+      right: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .row:active { background: var(--surface-hover); }
+
+    @media (hover: hover) {
+      .row:hover { background: var(--surface-hover); }
+    }
+
+    .app-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .app-icon svg { width: 100%; height: 100%; display: block; }
+
+    .app-99food { background: var(--food99); }
+    .app-ifood { background: var(--ifood); }
 
     .label {
       flex: 1;
       min-width: 0;
       display: flex;
       flex-direction: column;
+      gap: 1px;
     }
 
     .label strong {
-      font-size: .98rem;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 700;
     }
 
     .label small {
-      margin-top: 1px;
       font-size: .82rem;
+      font-weight: 500;
       color: var(--muted);
     }
 
@@ -303,29 +328,7 @@
       width: 18px;
       height: 18px;
       opacity: .4;
-      transition: opacity .15s ease;
     }
-
-    /* Botão principal */
-    .btn-primary {
-      border-color: var(--brand);
-      background: var(--brand);
-      color: #fff;
-    }
-    .btn-primary .icon { background: rgba(255, 255, 255, .16); color: #fff; }
-    .btn-primary .label small { color: rgba(255, 255, 255, .85); }
-    .btn-primary .arrow { opacity: .85; }
-
-    @media (hover: hover) {
-      .btn-primary:hover { background: var(--brand-hover); border-color: var(--brand-hover); }
-    }
-
-    .icon-99food { color: var(--food99); }
-    .icon-ifood { color: var(--ifood); }
-    .icon-whatsapp { color: var(--whatsapp); }
-    .icon-instagram { color: var(--instagram); }
-    .icon-map { color: var(--brand); }
-    .icon-google { color: var(--google); }
 
     /* ---------- Rodapé ---------- */
     .footer {
@@ -333,223 +336,142 @@
       padding-top: 40px;
       text-align: center;
       font-size: .76rem;
-      color: #5c5c5c;
+      color: #5f5a53;
+    }
+
+    @media (max-width: 350px) {
+      .actions { gap: 6px; }
+      .action { font-size: .7rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
   <main class="page">
 
-    <header class="header">
-      <div class="cover">
-        <img src="capa.jpeg" alt="Container do Avenidão Container à noite" width="1290" height="1217"
-             onerror="this.remove()">
-      </div>
-      <div class="logo">
-        <img src="logo.jpg" alt="Avenidão Container" width="1280" height="853"
-             onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Avenidão Container</span>'">
-      </div>
-      <h1 class="name">Avenidão Container</h1>
-      <p class="city">Lanches e Shawarma · Cascavel - PR</p>
-      <p class="status" id="status" hidden></p>
-      <p class="hours">Terça a domingo, das 19h às 23h</p>
-    </header>
+    <div class="cover">
+      <img src="capa.jpeg" alt="Container do Avenidão Container à noite" width="1290" height="1217"
+           onerror="this.remove()">
+    </div>
 
-    <section class="section" aria-labelledby="s-local">
-      <div class="section-head">
-        <span class="section-badge">
+    <div class="sheet">
+
+      <header class="profile">
+        <div class="logo">
+          <img src="logo.jpg" alt="Avenidão Container" width="1280" height="853"
+               onerror="this.outerHTML='<span class=&quot;logo-fallback&quot;>Avenidão Container</span>'">
+        </div>
+        <h1 class="name">Avenidão Container</h1>
+        <p class="info">Terça a domingo, das 19h às 23h</p>
+        <p class="address">Av. Papagaios, 2191 - Floresta, Cascavel - PR</p>
+      </header>
+
+      <nav class="actions" aria-label="Contato">
+        <a class="action a-whatsapp" href="https://wa.me/5545998269678?text=Ol%C3%A1!%20Vim%20pelo%20link%20do%20Avenid%C3%A3o" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.2-4.24 9.43-9.45 9.43m8.04-17.47A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.3 11.3 0 0 0 5.76 1.47h.01c6.26 0 11.36-5.1 11.37-11.36 0-3.04-1.18-5.89-3.33-8.04"/>
+          </svg>
+          WhatsApp
+        </a>
+        <a class="action a-instagram" href="https://www.instagram.com/avenidaocontainer/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>
+          </svg>
+          Instagram
+        </a>
+        <a class="action a-map" href="https://www.google.com/maps/search/?api=1&amp;query=Avenid%C3%A3o%20Container%2C%20Av.%20Papagaios%2C%202191%20-%20Floresta%2C%20Cascavel%20-%20PR" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          Rota
+        </a>
+        <a class="action a-google" href="https://www.google.com/search?q=Avenid%C3%A3o+Container+Cascavel+avalia%C3%A7%C3%B5es" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="m12 2.5 2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95Z"/>
+          </svg>
+          Avaliar
+        </a>
+      </nav>
+
+      <section class="section" aria-labelledby="s-local">
+        <h2 class="section-title" id="s-local">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 9 4.5 4h15L21 9"/><path d="M3 9v1a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0V9"/><path d="M5 12.5V20h14v-7.5"/><path d="M10 20v-5h4v5"/>
           </svg>
-        </span>
-        <div>
-          <h2 class="section-title" id="s-local">Retirada ou consumo no local</h2>
-        </div>
-      </div>
-      <div class="list">
-        <a class="btn btn-primary" href="https://avenidaocontainer.centralpedidosonline.com.br/" target="_blank" rel="noopener">
-          <span class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
-            </svg>
-          </span>
+          Retirada ou consumo no local
+        </h2>
+        <a class="cta" href="https://avenidaocontainer.centralpedidosonline.com.br/" target="_blank" rel="noopener">
+          <span class="cta-logo"><img src="icon.png" alt="" width="192" height="192"></span>
           <span class="label">
             <strong>Fazer pedido pelo site</strong>
             <small>Peça pelo site para retirada ou consumo no local</small>
           </span>
           <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
         </a>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="s-entrega">
-      <div class="section-head">
-        <span class="section-badge">
+      <section class="section" aria-labelledby="s-entrega">
+        <h2 class="section-title" id="s-entrega">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><path d="M8 17.5h7l-2.5-7H9"/><path d="M15 6h2.5l3.5 9"/><path d="M3 11h5"/>
           </svg>
-        </span>
-        <div>
-          <h2 class="section-title" id="s-entrega">Pedidos para entrega</h2>
-          <p class="section-sub">Receba em casa pelo app que preferir</p>
+          Pedidos para entrega
+        </h2>
+        <div class="group">
+          <a class="row" href="https://oia.99app.com/dlp9/8cYyxD" target="_blank" rel="noopener">
+            <span class="app-icon app-99food">
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <text x="20" y="24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="900" fill="#111" letter-spacing="-1">99</text>
+                <text x="20" y="33" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="700" fill="#111">Food</text>
+              </svg>
+            </span>
+            <span class="label">
+              <strong>Avenidão Container</strong>
+              <small>Pedir pelo 99Food</small>
+            </span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+
+          <a class="row" href="https://www.ifood.com.br/delivery/cascavel-pr/avenidao-container-floresta/92b23a23-96fb-44d3-a732-616bd83482e5" target="_blank" rel="noopener">
+            <span class="app-icon app-ifood">
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <text x="20" y="24.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="900" font-style="italic" fill="#fff" letter-spacing="-.6">iFood</text>
+              </svg>
+            </span>
+            <span class="label">
+              <strong>Avenidão Container</strong>
+              <small>Pedir pelo iFood</small>
+            </span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+
+          <a class="row" href="https://www.ifood.com.br/delivery/cascavel-pr/avenidao-dog-prensado-floresta/561503b8-410a-4def-a23b-225e834baab6?utm_medium=share" target="_blank" rel="noopener">
+            <span class="app-icon app-ifood">
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <text x="20" y="24.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="900" font-style="italic" fill="#fff" letter-spacing="-.6">iFood</text>
+              </svg>
+            </span>
+            <span class="label">
+              <strong>Avenidão Dog Prensado</strong>
+              <small>Pedir pelo iFood</small>
+            </span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
         </div>
-      </div>
-      <div class="list">
-        <a class="btn" href="https://oia.99app.com/dlp9/8cYyxD" target="_blank" rel="noopener">
-          <span class="icon icon-99food">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <text x="12" y="16.5" text-anchor="middle" font-family="system-ui, -apple-system, Arial, sans-serif" font-size="13" font-weight="900" fill="currentColor" letter-spacing="-.5">99</text>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>Avenidão Container</strong>
-            <small>Pedir pelo 99Food</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
+      </section>
 
-        <a class="btn" href="https://www.ifood.com.br/delivery/cascavel-pr/avenidao-container-floresta/92b23a23-96fb-44d3-a732-616bd83482e5" target="_blank" rel="noopener">
-          <span class="icon icon-ifood">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <text x="12" y="15.4" text-anchor="middle" font-family="system-ui, -apple-system, Arial, sans-serif" font-size="8.4" font-weight="900" font-style="italic" fill="currentColor" letter-spacing="-.3">iFood</text>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>Avenidão Container</strong>
-            <small>Pedir pelo iFood</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
+      <footer class="footer">
+        © <span id="year">2026</span> Avenidão Container · Cascavel - PR
+      </footer>
 
-        <a class="btn" href="https://www.ifood.com.br/delivery/cascavel-pr/avenidao-dog-prensado-floresta/561503b8-410a-4def-a23b-225e834baab6?utm_medium=share" target="_blank" rel="noopener">
-          <span class="icon icon-ifood">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <text x="12" y="15.4" text-anchor="middle" font-family="system-ui, -apple-system, Arial, sans-serif" font-size="8.4" font-weight="900" font-style="italic" fill="currentColor" letter-spacing="-.3">iFood</text>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>Avenidão Dog Prensado</strong>
-            <small>Pedir pelo iFood</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="s-contato">
-      <div class="section-head">
-        <span class="section-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-        </span>
-        <div>
-          <h2 class="section-title" id="s-contato">Contato</h2>
-          <p class="section-sub">Fale com a gente ou venha nos visitar</p>
-        </div>
-      </div>
-      <div class="list">
-        <a class="btn" href="https://wa.me/5545998269678?text=Ol%C3%A1!%20Vim%20pelo%20link%20do%20Avenid%C3%A3o" target="_blank" rel="noopener">
-          <span class="icon icon-whatsapp">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.2-4.24 9.43-9.45 9.43m8.04-17.47A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.3 11.3 0 0 0 5.76 1.47h.01c6.26 0 11.36-5.1 11.37-11.36 0-3.04-1.18-5.89-3.33-8.04"/>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>WhatsApp</strong>
-            <small>(45) 99826-9678</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
-
-        <a class="btn" href="https://www.instagram.com/avenidaocontainer/" target="_blank" rel="noopener">
-          <span class="icon icon-instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>Instagram</strong>
-            <small>@avenidaocontainer</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
-
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Avenid%C3%A3o%20Container%2C%20Av.%20Papagaios%2C%202191%20-%20Floresta%2C%20Cascavel%20-%20PR" target="_blank" rel="noopener">
-          <span class="icon icon-map">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>Como chegar</strong>
-            <small>Av. Papagaios, 2191 - Floresta</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
-
-        <a class="btn" href="https://www.google.com/search?q=Avenid%C3%A3o+Container+Cascavel+avalia%C3%A7%C3%B5es" target="_blank" rel="noopener">
-          <span class="icon icon-google">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="m12 2.5 2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95Z"/>
-            </svg>
-          </span>
-          <span class="label">
-            <strong>Avaliar no Google</strong>
-            <small>Conte como foi sua experiência</small>
-          </span>
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
-      </div>
-    </section>
-
-    <footer class="footer">
-      © <span id="year">2026</span> Avenidão Container
-    </footer>
-
+    </div>
   </main>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Aberto/fechado: terça a domingo, das 19h às 23h (horário de Brasília)
-    (function () {
-      var OPEN = 19 * 60, CLOSE = 23 * 60, DAY_OFF = 1; // 1 = segunda
-      var DAYS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
-      var status = document.getElementById('status');
-
-      function now() {
-        var parts = new Intl.DateTimeFormat('en-US', {
-          timeZone: 'America/Sao_Paulo', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23'
-        }).formatToParts(new Date());
-        var get = function (t) { return parts.find(function (p) { return p.type === t; }).value; };
-        return {
-          day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday')),
-          min: parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10)
-        };
-      }
-
-      function update() {
-        var t = now();
-        var open = t.day !== DAY_OFF && t.min >= OPEN && t.min < CLOSE;
-        var text;
-        if (open) {
-          text = 'Aberto agora';
-        } else if (t.day !== DAY_OFF && t.min < OPEN) {
-          text = 'Fechado · abre hoje às 19h';
-        } else {
-          for (var d = 1; d <= 7; d++) {
-            var next = (t.day + d) % 7;
-            if (next !== DAY_OFF) { text = 'Fechado · abre ' + (d === 1 ? 'amanhã' : DAYS[next]) + ' às 19h'; break; }
-          }
-        }
-        status.textContent = text;
-        status.classList.toggle('is-open', open);
-        status.hidden = false;
-      }
-
-      try { update(); setInterval(update, 60000); } catch (e) {}
-    })();
   </script>
 </body>
 </html>
